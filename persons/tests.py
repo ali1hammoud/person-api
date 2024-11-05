@@ -5,6 +5,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from .models import Person
 
+
 class PersonAPITests(APITestCase):
 
     def setUp(self):

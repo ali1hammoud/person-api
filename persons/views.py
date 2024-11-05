@@ -6,6 +6,7 @@ from rest_framework.decorators import action
 from .models import Person
 from .serializers import PersonSerializer
 
+
 class PersonViewSet(viewsets.ViewSet):
     """
     A simple ViewSet for listing, retrieving, creating, updating, and deleting Persons.
@@ -37,7 +38,6 @@ class PersonViewSet(viewsets.ViewSet):
             person = Person.objects.get(pk=pk)
         except Person.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        
         serializer = PersonSerializer(person, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
